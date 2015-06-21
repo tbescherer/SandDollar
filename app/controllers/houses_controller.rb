@@ -1,11 +1,13 @@
 class HousesController < ApplicationController
 
+  before_action :require_signed_in
+
   def new
-    @house = current_user.houses.new
+    @house = current_user.owned_houses.new
   end
 
   def create
-    @house = current_user.houses.new(house_params)
+    @house = current_user.owned_houses.new(house_params)
     if @house.save
       redirect_to house_url(@house)
     else
@@ -45,4 +47,5 @@ class HousesController < ApplicationController
   def house_params
     params.require(:house).permit(:owner_id, :decription, :address)
   end
+
 end

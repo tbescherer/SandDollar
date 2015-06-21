@@ -1,0 +1,14 @@
+<h1> List Your House for Rent </h1>
+
+<form action="<%= houses_url %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= form_auth_token %>
+  <label for="address">Address:</label>
+  <input id="address" type="text" name="house[address]" value="<%= @house.address %>">
+  <br>
+  <label for="description">Description:</label>
+  <textarea id="description" name="house[description]" value="<%= @house.description %>"></textarea>
+  <br>
+  <button>Update House</button>
+</form>
+<a href="<%= houses_url %>">Back to Houses Index</a>

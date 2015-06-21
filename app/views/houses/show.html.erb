@@ -1,0 +1,11 @@
+<h1> <%= @house.address %> </h1>
+<p> Description: <%= @house.description %> </p>
+<p> Owned by: <%= @house.owner.username %> </p>
+<br>
+
+<% if @house.belongs_to_user?(current_user) %>
+  <a href="<%= edit_house_url(@house) %>">Edit House</a>
+  <br>
+<% end %>
+
+<a href="<%= houses_url %>">Back to Houses Index</a>

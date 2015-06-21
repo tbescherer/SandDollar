@@ -1,0 +1,7 @@
+<h1> All houses currently for rent </h1>
+<% House.all.each do |house| %>
+  <a href="<%= house_url(house) %>"><%= house.address %></a>
+  <br>
+<% end %>
+
+<a href="<%= new_house_url %>">List your own house for rent!</a>
