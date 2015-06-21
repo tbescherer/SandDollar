@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
               params[:session][:password]
               )
     sign_in(@user)
-    redirect_to rentals_url
+    redirect_to houses_url
   end
 
   def new
