@@ -6,6 +6,12 @@
 <% if @house.belongs_to_user?(current_user) %>
   <a href="<%= edit_house_url(@house) %>">Edit House</a>
   <br>
+<% else %>
+  <form action="<%=house_rental_requests_url%>" method="post">
+    <%= form_auth_token %>
+    <input type="hidden" name="house_rental_request[house_id]" value="<%= @house.id %>">
+    <button>Rent this house!</button>
+  </form>
 <% end %>
 
 <a href="<%= houses_url %>">Back to Houses Index</a>
