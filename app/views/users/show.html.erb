@@ -2,7 +2,7 @@
 <p> Your Rental Requests: </p>
 <ul>
   <% @user.house_rental_requests.each do |request| %>
-    <li><%= request.house.address %> from <%= request.start_date %> to <%= request.end_date %></li>
+    <li><a href="<%=house_url(request.house)%>"><%= request.house.address %></a> from <%= request.start_date %> to <%= request.end_date %> <%= request.status %></li>
   <% end %>
 </ul>
 <br>
