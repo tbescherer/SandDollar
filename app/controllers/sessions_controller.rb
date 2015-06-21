@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
               params[:session][:username],
               params[:session][:password]
               )
-    log_in(@user)
+    sign_in(@user)
     redirect_to rentals_url
   end
 
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    sign_out
     redirect_to new_session_url
   end
 end
