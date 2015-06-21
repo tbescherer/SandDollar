@@ -1,0 +1,19 @@
+<h1> <%= @user.username %> </h1>
+<p> Your Rental Requests: </p>
+<ul>
+  <% @user.house_rental_requests.each do |request| %>
+    <li><%= request.house.address %> from <%= request.start_date %> to <%= request.end_date %></li>
+  <% end %>
+</ul>
+<br>
+<p> Your Owned Houses </p>
+<ul>
+  <% @user.owned_houses.each do |house| %>
+    <li><a href="<%=house_url(house)%>"><%= house.address %></a> </li>
+      <ul>
+        <% house.rental_requests.each do |request| %>
+          <li> <%= request.start_date %> to <%= request.end_date %> <%= render "approve_buttons", request: request%></li>
+        <% end %>
+      </ul>
+  <% end %>
+</ul>

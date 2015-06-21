@@ -4,6 +4,7 @@
     <input type="hidden" name="_method" value="delete">
     <button>Sign Out</button>
   </form>
+  <a href="<%= user_url(current_user)%>"> Your Profile </a>
 <% else %>
 <form action="<%= new_session_url %>" method="get">
   <%= form_auth_token %>

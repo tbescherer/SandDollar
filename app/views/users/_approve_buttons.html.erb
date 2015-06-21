@@ -1,0 +1,16 @@
+<% if request.status == "Pending" %>
+<form action="<%=house_rental_request_url(request)%>" method="post">
+  <%= form_auth_token %>
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="house_rental_request[status]" value="Approved">
+  <button>Approve</button>
+</form>
+<form action="<%=house_rental_request_url(request)%>" method="post">
+  <%= form_auth_token %>
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="house_rental_request[status]" value="Denied">
+  <button>Deny</button>
+</form>
+<% else %>
+<p> <%= request.status %> </p>
+<% end %>

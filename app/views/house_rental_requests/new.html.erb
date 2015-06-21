@@ -1,4 +1,4 @@
-<h1> Request House Rental for <%= @request.house.add %></h1>
+<h1> Request House Rental for <%= @request.house.address %></h1>
 
 <form action="<%=house_rental_requests_url%>" method="post">
   <%= form_auth_token %>
@@ -7,6 +7,7 @@
   <br>
   <label for="end_date">Start Date:</label>
   <input id="end_date" type="date" name="house_rental_request[end_date]" value="<%= @request.end_date %>">
+  <input type="hidden" name="house_rental_request[house_id]" value="<%= params["house_rental_request"]["house_id"]%>">
   <br>
   <button>Request House</button>
 </form>
