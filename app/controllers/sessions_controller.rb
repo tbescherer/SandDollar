@@ -5,8 +5,13 @@ class SessionsController < ApplicationController
               params[:session][:username],
               params[:session][:password]
               )
-    sign_in(@user)
-    redirect_to houses_url
+    if @user
+      sign_in(@user)
+      redirect_to houses_url
+    else
+      flash[:errors] = ["Invalid name or password"]
+      render :new
+    end
   end
 
   def new

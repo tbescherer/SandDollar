@@ -1,6 +1,6 @@
 <h1> List Your House for Rent </h1>
 
-<form action="<%= houses_url %>" method="post">
+<form action="<%= house_url(@house) %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <%= form_auth_token %>
   <label for="address">Address:</label>

@@ -27,6 +27,10 @@ class HousesController < ApplicationController
 
   def edit
     @house = House.find(params[:id])
+  end
+
+  def update
+    @house = House.find(params[:id])
     if @house.update(house_params)
       redirect_to house_url(@house)
     else
@@ -45,7 +49,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:owner_id, :decription, :address)
+    params.require(:house).permit(:owner_id, :description, :address)
   end
 
 end
