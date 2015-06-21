@@ -1,0 +1,13 @@
+<h1> Request House Rental for <%= @request.house.add %></h1>
+
+<form action="<%=house_rental_requests_url%>" method="post">
+  <%= form_auth_token %>
+  <label for="start_date">Start Date:</label>
+  <input id="start_date" type="date" name="house_rental_request[start_date]" value="<%= @request.start_date %>">
+  <br>
+  <label for="end_date">Start Date:</label>
+  <input id="end_date" type="date" name="house_rental_request[end_date]" value="<%= @request.end_date %>">
+  <br>
+  <button>Request House</button>
+</form>
+<a href="<%= houses_url %>">Back to Houses Index</a>
