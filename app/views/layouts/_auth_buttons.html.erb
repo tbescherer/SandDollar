@@ -1,0 +1,12 @@
+<% if signed_in? %>
+  <form action="<%= session_url %>" method="post">
+    <%= form_auth_token %>
+    <input type="hidden" name="_method" value="delete">
+    <button>Sign Out</button>
+  </form>
+<% else %>
+<form action="<%= new_session_url %>" method="get">
+  <%= form_auth_token %>
+  <button>Sign In</button>
+</form>
+<% end %>
